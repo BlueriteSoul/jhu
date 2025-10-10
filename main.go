@@ -13,7 +13,16 @@ func main() {
 	locFlag := flag.Bool("loc", false, "Count lines of code in current dir and nested dirs")
 	locfFlag := flag.Bool("locf", false, "Use Tokei to count lines of code in current dir and nested dirs")
 	oneLinerFlag := flag.Bool("ol", false, "Copy all your project files into clipboard")
+	oneLinerSpecificFlag := flag.Bool("ols", false, "Copy specific files from config into clipboard (from ~.conf/jhu.conf")
 	flag.Parse()
+
+	// Prepare extra args for Tokei if -locf is used
+	/*var extraArgs []string
+	if *locfFlag {
+		for _, arg := range os.Args[2:] { // skip "jhu" and "-locf"
+			extraArgs = append(extraArgs, arg)
+		}
+		}*/
 
 	switch {
 	case *locFlag:
@@ -26,8 +35,11 @@ func main() {
 		fmt.Println(locDisclaimer)
 
 	case *locfFlag:
-		someNumberIGotBack := CountLOCTokei(".")
-		fmt.Println("Hopefully, above you see what you are supposed to see, and here's what I got back from the function: ", someNumberIGotBack)
+		// Explicitly construct arguments for Tokei
+		extraArgs := []string{"--help"}
+		fmt.Println("Running Tokei via embedded Rust library...")
+		CountLOCTokei(extraArgs)
+		//fmt.Println("Hopefully, above you see what you are supposed to see, and here's what I got back from the function: ", someNumberIGotBack)
 
 	case *oneLinerFlag:
 		err := CopyIntoClipboard() //maybe I want to pass a path? Maybe I can just get a path from the function anyway.
@@ -35,6 +47,13 @@ func main() {
 			log.Fatal(err)
 		}
 		fmt.Println("Project files copied to clipboard.")
+
+	case *oneLinerSpecificFlag:
+		err := CopySpecificIntoClipboard()
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Println("Specific project files copied to clipboard.")
 
 	case *helpFlag:
 		fmt.Println("TODO: is this professional development?")
