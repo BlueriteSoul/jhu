@@ -1,0 +1,20 @@
+Project: Jerry’s Handy Utility
+Author: https://github.com/BlueriteSoul/ (2025)
+
+This project is released into the public domain under CC0 1.0 Universal.
+You may use this software freely for any purpose.
+Please bear in mind that this is a personal tool and educational project.
+Therefore, you can expect limited cross-platform support, inclusion of
+binary blobs, and other practical compromises typical of personal utilities.
+
+Third-Party Components:
+
+- Tokei (https://github.com/XAMPPRocky/tokei)
+  Copyright (c) 2016 Erin Power
+  Licensed under the MIT License and/or Apache License, Version 2.0.
+  Used under the MIT terms.
+
+-------------------------------------------------------------
+
+No warranty is provided. The author makes no claims regarding
+fitness for any purpose or merchantability.
