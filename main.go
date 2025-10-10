@@ -11,6 +11,7 @@ const locDisclaimer = "\nHey, it turns out, counting LOCs is harder than previou
 func main() {
 	helpFlag := flag.Bool("help", false, "Manual for JHU.")
 	locFlag := flag.Bool("loc", false, "Count lines of code in current dir and nested dirs")
+	locfFlag := flag.Bool("locf", false, "Use Tokei to count lines of code in current dir and nested dirs")
 	oneLinerFlag := flag.Bool("ol", false, "Copy all your project files into clipboard")
 	flag.Parse()
 
@@ -24,11 +25,15 @@ func main() {
 		fmt.Printf("Total LOC: %d\n", totalLines)
 		fmt.Println(locDisclaimer)
 
+	case *locfFlag:
+		someNumberIGotBack := CountLOCTokei(".")
+		fmt.Println("Hopefully, above you see what you are supposed to see, and here's what I got back from the function: ", someNumberIGotBack)
+
 	case *oneLinerFlag:
-		/*err := */ CopyIntoClipboard() //maybe I want to pass a path? Maybe I can just get a path from the function anyway.
-		//if err != nil {
-		//	log.Fatal(err)
-		//}
+		err := CopyIntoClipboard() //maybe I want to pass a path? Maybe I can just get a path from the function anyway.
+		if err != nil {
+			log.Fatal(err)
+		}
 		fmt.Println("Project files copied to clipboard.")
 
 	case *helpFlag:

@@ -58,7 +58,7 @@ func isTextFile(path string) (bool, error) {
 	// detecting text files based on null in the first 1kb *facepalm*
 	// for "prod" I would need to come up with more robust way of identifying text/code files
 	if strings.HasPrefix(path, ".git/") {
-		//I don't wanna count git bollocks, that's definetely not part of the codebase
+		//I don't wanna count git bollocks, that's definitely not part of the codebase
 		return false, nil
 	}
 	defer f.Close()
