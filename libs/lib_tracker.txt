@@ -1,4 +1,3 @@
 This is a file for AI, to understand what is in this folder. It is not generated, so it might get outdated!
-There are 2 library files.
-libtokei.so - this one in case I need it later, as I hope to you static library
-libtokei.a - I hope to embed this into my app
+There is 1 library file.
+tokei - I built this with `cargo install --locked tokei` while in the repo (not sure if being in the repo was necessary)
