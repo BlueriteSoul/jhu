@@ -1,3 +1,0 @@
-This is a file for AI, to understand what is in this folder. It is not generated, so it might get outdated!
-There is 1 library file.
-tokei - I built this with `cargo install --locked tokei` while in the repo (not sure if being in the repo was necessary)

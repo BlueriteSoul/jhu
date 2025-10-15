@@ -37,7 +37,8 @@ pub extern "C" fn count_loc(dir: *const c_char) -> u64 {
     // Sum lines of code across all languages
     let total: u64 = languages.iter().map(|(_, lang)| lang.code as u64).sum();
     total
-}```
+}
+```
 
 I think that was just about everything I did. While the actual code is lost, I did preserve the snapshot of my app, including the .a/.so files, so my app's code can be examined and ran as I ran it at head: 0022f116a4cceff79e33bbac292f0b5fe7d51f65
 
