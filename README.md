@@ -66,16 +66,21 @@ FILES="Cargo.toml,src/main.rs,src/cli_runner.rs,src/lib.rs,src/cli.rs"
 
 1. Clone the repository:
 
-``` git clone [https://github.com/BlueriteSoul/jerrys_handy_utility.git](https://github.com/BlueriteSoul/jerrys_handy_utility.git) ```
-``` cd jerrys_handy_utility ```
+``` git clone https://github.com/BlueriteSoul/jhu
+``` 
+```cd jhu
+```
 
-2. Build the project (requires Go):
+2. Build the project (requires Go):https://github.com/BlueriteSoul/jhu
 
-``` go install . ```
+``` go install .
+```
 
-**Note:** ```GOPATH/bin is where go install places the binary. Ensure this directory is in your ```PATH to run jhu from anywhere:
+**Note:** `GOPATH/bin is where go install places the binary. Ensure this directory is in your `PATH to run jhu from anywhere:
 
-``` export PATH=```PATH:```(go env GOPATH)/bin ```
+```bash
+export PATH=$PATH:$(go env GOPATH)/bin
+```
 
 3. Run the utility:
 
